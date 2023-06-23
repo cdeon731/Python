@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='dashboard_styles.css') }}">
+    <title>View a Trail</title>
+</head>
+<body>
+    <div class="container">
+        <p class="large big-col">About the {{ this_trail.name }}!</p> <!-- Display name of user here! -->
+        <p class="col"><a href="/trails">All trails</a><a href="/logout">Log out</a></p>
+    </div>
+    <p>Added by: {{ this_trail.user.first_name }} {{ this_trail.user.last_name }}</p>
+    <p>Locale: {{ this_trail.location }}</p>
+    <p>Difficulty rating: {{ this_trail.difficulty }}</p>
+    <p>Description: {{ this_trail.description }}</p>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='form_page_styles.css') }}">
+    <title>Add a Trail</title>
+</head>
+<body>
+    <div class="container">
+        <p class="large big-col">Add a trail, {{ this_user.first_name }}!</p>
+        <p class="col"><a href="/trails">All trails</a> <a href="/logout">Log out</a></p>
+    </div>
+    <form action="/trails/add_to_db" method="POST"> <!-- Don't forget action and method="POST"!-->
+        {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
+            {% if messages %}                            <!-- check if there are any messages -->
+                {% for message in messages %}            <!-- loop through the messages -->
+                    <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <div class="container">
+            <label for="name" class="label-col">Name:</label>
+            <input type="text" name="name" id="name"> <!-- Don't forget name="key_value" in forms!-->
+        </div>
+        <div class="container">
+            <label for="location" class="label-col">Location:</label>
+            <input type="text" name="location" id="location">
+        </div>
+        <div class="container">
+            <label for="difficulty" class="label-col">Difficulty:</label>
+            <select name="difficulty" id="difficulty">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+        <div class="container">
+            <label for="more_than_10_km" class="label-col">10+ Kilometers:</label>
+            <input type="radio" id="more_than_10_km_yes" name="more_than_10_km" value="1">
+            <label for="more_than_10_km_yes">Yes</label>
+            <input type="radio" id="more_than_10_km_no" name="more_than_10_km" value="0">
+            <label for="more_than_10_km_no">No</label>
+        </div>
+        <div class="container">
+            <label for="description" class="label-col">Description:</label>
+            <textarea name="description" id="description" rows="5"></textarea>
+        </div>
+        <!-- Remember to have a button or input type="submit"!-->
+        <input type="submit" value="Add trail" class="offset-btn">
+    </form>
+</body>
+</html>

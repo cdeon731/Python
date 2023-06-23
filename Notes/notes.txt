@@ -1,0 +1,23 @@
+9/8/22
+class Book:
+    def __init__(self, title, pages, genre):
+        self.title = title
+        self.pages = pages
+        self.genre = genre
+        self.author = None # Will hold ONE Author linked to this Book
+
+class Author:
+    def __init__(self, name, birthdate):
+        self.name = name
+        self.birthdate = birthdate
+        self.books = [] # Empty list that will hold MANY Book objects
+# Creating an Author
+austen = Author("Jane Austen","1875-12-16")
+
+# Creating a book (not linking to Author yet)
+book1 = Book("Pride and Prejudice", 480, "Romance")
+
+
+9/13/22
+
+

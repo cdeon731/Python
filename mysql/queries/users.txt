@@ -1,0 +1,20 @@
+INSERT INTO users (first_name, last_name, email)
+VALUES ("Casey", "D'Eon", "cdeon731@gmail.com"),
+("Harper", "D'Eon", "hdeon119@gmail.com"),
+("William", "D'Eon", "wdeon126@gmail.com");
+
+SELECT * FROM users;
+
+SELECT * FROM users
+WHERE email = "cdeon731@gmail.com";
+
+SELECT * FROM users WHERE id = 3;
+
+UPDATE users SET last_name = "Pancakes"
+WHERE users.id = 3;
+
+DELETE FROM users WHERE users.id = 2;
+
+SELECT * FROM users ORDER BY first_name;
+
+SELECT * FROM users ORDER BY first_name DESC;

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Recipe</title>
+</head>
+<body>
+    <h1>Edit Your Recipe!</h1>
+    <div>
+        <form action="/recipes/edit/{{recipe.id}}>" method="post">
+            <label for="name">Recipe Name:</label>
+            <input type="text" name="name" id="name" value="{{recipe.name}}">
+            
+            <label for="description">Description</label>
+            <textarea name="description" id="description" cols="30" rows="10">{{recipe.description}}</textarea>
+            
+            <label for="instructions">Instructions: </label>
+            <textarea name="instructions" id="instructions" cols="30" rows="10">{{recipe.instructions}}</textarea>
+            
+            <div>
+                <label for="date_made">Date Made: </label>
+                <input type="date" name="date_made" id="date_made" value="{{recipe.date_made}}">
+            </div>
+            
+            <div>
+                <p>Under 30 mins?</p>
+                <input type="radio" id="yes" name="under_30" value="1">
+                <label for="yes">Yes</label>
+                <input type="radio" id="no" name="under_30" value="0">
+                <label for="no">No</label>
+            </div>
+
+            <input type="hidden" name="id" value="{{recipe.id}}">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <p><a href="/home">Back to Recipes</a></p>
+    <p><a href="/logout">Logout</a></p>
+</body>
+</html>

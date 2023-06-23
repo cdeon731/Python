@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='dashboard_styles.css') }}">
+    <title>All Trails</title>
+</head>
+<body>
+    <div class="container">
+        <p class="large big-col">Hi, {{ this_user.first_name }}!</p> <!-- Display name of user here! -->
+        <p class="col"><a href="/your_trails">Your trails</a><a href="/logout">Log out</a></p>
+    </div>
+    <h3>All Trails</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Added by</th>
+                <th>10+ kms</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for trail in all_trails %}
+                <tr>
+                    <td>{{ trail.name }}</td>
+                    <td>{{ trail.user.first_name }} {{ trail.user.last_name }}</td>
+                    {% if trail.more_than_10_km == 1 %}
+                        <td>Yes</td>
+                    {% else %}
+                        <td>No</td>
+                    {% endif %}
+                    <td>
+                        <a href="/trails/{{ trail.id }}">View</a>
+                        {% if trail.user.id == session["user_id"] %}
+                        <a href="/trails/{{ trail.id }}/edit">Edit</a>
+                        <a href="/trails/{{ trail.id }}/delete">Delete</a>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p><a href="/trails/new">Add a trail</a></p>
+</body>
+</html>

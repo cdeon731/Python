@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <title>Dojo Survey</title>
+</head>
+<body>
+    <form action="/process" method="post" class="col-lg-6 offset-lg-3 " style="text-align: center; background-color: gray;">
+        <div style="margin: 10px; padding: 10px;">
+            <h1>Dojo Survey</h1>
+            <div class="form-group">
+                <label for="name">NAME: </label>
+                <input class="form-control" type="text" name="name">
+            </div>
+            <div class="form-group">
+                <label for="location">Dojo Location: </label>
+                <select class="form-control" name="location">
+                    <option value="">SELECT</option>
+                    <option value="Chicago">Chicago</option>
+                    <option value="Burbank">Burbank</option>
+                    <option value="Seattle">Seattle</option>
+                    <option value="Online">Online</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="language">Coding Language: </label>
+                <select class="form-control" name="language">
+                    <option value="">SELECT</option>
+                    <option value="HTML/CSS/JS">HTML/CSS/JS</option>
+                    <option value="Python">Python</option>
+                    <option value="Java">Java</option>
+                    <option value="C++">C++</option>
+                    <option value="Ruby">Ruby</option>
+                </select>
+            </div>
+            <div style="text-align: center;">
+                <p>Please select your age:</p>
+                <input type="radio" id="age1" name="age" value="0 - 18">
+                <label for="age1">0 - 18</label>
+                <input type="radio" id="age2" name="age" value="19 - 30">
+                <label for="age2">19 - 30</label>  
+                <input type="radio" id="age3" name="age" value="30+">
+                <label for="age3">30+</label>
+            </div>
+            <div>
+                <p>Experience with programming language:</p>
+                <input type="checkbox" id="none" name="experience" value="None">
+                <label for="none"> None</label>
+                <input type="checkbox" id="some" name="experience" value="Some">
+                <label for="some"> Some</label>
+                <input type="checkbox" id="expert" name="experience" value="Expert">
+                <label for="expert"> Expert</label>
+            </div>
+            <div class="form-group">
+                <label for="comments">Comments: </label>
+                <textarea class="form-control" name="comments" cols="30" rows="10"></textarea>
+            </div>
+            <button class="submit, btn btn-primary" style="width: 200px; margin-top: 10px;">SUBMIT</button>
+        </div>
+    </form>
+</body>
+</html>

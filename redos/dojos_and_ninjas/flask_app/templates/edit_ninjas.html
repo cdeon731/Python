@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/style.css">
+    <title>Edit Ninja Profile</title>
+</head>
+<body>
+    <h1>Edit {{ninja.first_name}}</h1>
+    <div>
+        <form action="/update" method="post">
+            <input type="hidden" name="id" value="{{ninja.id}}">
+            
+            <label for="first_name">First Name: </label>
+            <input type="text" name="first_name" value="{{ninja.first_name}}">
+            
+            <label for="last_name">Last Name: </label>
+            <input type="text" name="last_name" value="{{ninja.last_name}}">
+            
+            <label for="age">Age: </label>
+            <input type="number" name="age" value="{{ninja.age}}">
+            
+            <input type="submit" value="Update Ninja">
+        </form>
+    </div>
+    <div>
+        <p><a href="/">Home</a></p>
+        <p><a href="/delete/{{ninja.id}}">Delete</a></p>
+    </div>
+</body>
+</html>
